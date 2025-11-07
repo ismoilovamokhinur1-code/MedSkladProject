@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Overview from "./pages/Dashboard/Overview";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Products from "./pages/Dashboard/Products";
+import Movements from "./pages/Dashboard/Movements";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Route path="/dashboard" element={<Dashboard />}>
         <Route index element={<Overview />} />
         <Route path="products" element={<Products />} />
-        {/* <Route path="stock" element={<Stock />} /> */}
+        <Route path="movements" element={<Movements/>}/>
       </Route>
     </Routes>
   );

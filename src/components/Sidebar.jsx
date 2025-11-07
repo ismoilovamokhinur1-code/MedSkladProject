@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Pill, Building, Boxes, Users, BarChart2, Settings } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -21,7 +21,9 @@ const Sidebar = () => {
       transition={{ type: "spring", stiffness: 100 }}
       className="w-64 bg-white shadow-md flex flex-col"
     >
-      <div className="text-2xl font-bold text-blue-700 p-6">МедСклад</div>
+      <div className="text-2xl font-bold text-blue-700 p-6">
+        <Link to="/dashboard">МедСклад</Link>
+        </div>
 
       <nav className="flex-1">
         {menuItems.map((item, index) => (

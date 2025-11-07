@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
 import { Outlet } from "react-router-dom";
 
 const Dashboard = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const storedProducts = localStorage.getItem("products");
+    if (storedProducts) {
+      setProducts(JSON.parse(storedProducts));
+    }
+  }, []);
+
   return (
     <div className="flex h-screen bg-gray-100">
       <Sidebar />
@@ -12,7 +21,7 @@ const Dashboard = () => {
         <Navbar />
 
         <main className="p-6 overflow-auto">
-          <Outlet /> 
+          <Outlet context={{ products, setProducts }} />
         </main>
       </div>
     </div>
@@ -20,3 +29,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
